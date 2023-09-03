@@ -4,6 +4,9 @@
 This visualization shows your entire life in weeks through a grid made of little squares (a square equals one week) that are set in rows of 52 squares (equaling a year). The number of rows available is determined by the life expectancy given by the Swiss federal statistical office (data set of 2021), relative to your gender and age. 
 First, the user is invited to give his gender and age, then the number of weeks that he’s already lived will appear in dark squares, the remaining time left to live (statistically) will appear with blank squares. On the left side of the gride a scale indicates the corresponding year of the row and the years left to live is given in bold. This project aims to visualize time passing by on a weekly basis in one’s life and to comprehend how much time is left in a broader scale.
 
+![im1](/captures/im1.png)
+![im2](/captures/im2.png)
+
 ## Tools used
 
 - D3
