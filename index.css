@@ -37,3 +37,11 @@ background-color: rgb(238, 238, 238);
     font-size: 2em;
     font-weight: bold;
 }
+.github{
+    position: relative;
+    top: 50px;
+    left: 15%;
+    list-style: none;
+    color :rgb(41, 41, 41);
+    text-decoration: none;
+}
