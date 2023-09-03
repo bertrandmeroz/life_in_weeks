@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="utf-8" http-equiv="encoding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.2/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7" charset="utf-8" deter=""></script>
+    <script type="text/javascript" src="script.js"></script>
+    <link href="index.css" rel="stylesheet" type="text/css">
 
-    <title>ma premiere visualisation</title>
+    <title>Project Life In Weeks</title>
 </head>
 <body>
-    <script src="script.js"></script>
+    <div class="content" id="content">
+        <h1 class="main_title">Life in Weeks</h1><br><br>
+        <form id="frm1" class="frm1">
+            <label for="age_i">Enter your age (between 0 and 99) </label>
+            <input type="number" id="age_i" name="age_1" min="0" max="99">
+            <input type="submit" id="submit_i" value="Submit"><br><br>
+        </form>
+        <form id="frm2" class="frm2">
+            <p>Gender : 
+            <input type="radio" id="femme" name="genres" value="femme" checked="checked">
+            <label for="femme">female</label>
+            <input type="radio" id="homme" name="genres" value="homme">
+            <label for="homme">male</label><br><br><br>
+            </p>
+        </form>
+        <div class="time_rel">
+            <p class="time_left" id="time_left"></p> <p class="time" id="time"></p><br>
+        </div>
+    </div>
 </body>
 </html>

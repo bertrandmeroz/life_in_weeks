@@ -1,0 +1,39 @@
+*
+{
+margin: 0;
+padding: 0;
+font-family: Verdana, Arial, Tahoma, Serif;
+}
+body
+{
+background-color: rgb(238, 238, 238);
+}
+.content{
+    height: 100vh;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+.main_title{
+    padding-top: 1%;
+}
+
+.frm1{
+    padding-top: 1%;
+}
+
+.time_rel{
+    padding-left: 225px;
+}
+
+.time_left{
+    display: inline;
+    font-size: 1.7em;
+}
+
+.time{
+    display: inline;
+    font-size: 2em;
+    font-weight: bold;
+}
