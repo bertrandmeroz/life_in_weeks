@@ -6,7 +6,8 @@ First, the user is invited to give his gender and age, then the number of weeks 
 
 ## Tools used
 
-D3/Visual Studio Code
+- D3
+- Visual Studio Code
 
 ## Use
 
