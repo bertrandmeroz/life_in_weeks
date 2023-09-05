@@ -1,8 +1,10 @@
 var prompt_age = -1;
 var prompt_genre = "femme";
+var pays = "Switzerland"
 
 window.onload = function() {
     
+    document.getElementById("darker").addEventListener('click', hideinfobox);
 
     document.getElementById("frm2").addEventListener('click', function (event) {
         if (event.target && event.target.matches("input[type='radio']")) {
@@ -11,23 +13,44 @@ window.onload = function() {
                     .remove();
             }
             prompt_genre = document.querySelector('input[name="genres"]:checked').value;
-            console.log("genre", prompt_genre);
-            console.log("type de genre:", typeof(prompt_genre));
+            pays = document.getElementById("country").value;
+
             if (prompt_age != -1){
                 prompt_age = parseFloat(document.getElementById("age_i").value);
-                console.log("Updated age:", prompt_age);
-                console.log("type de Updated age:", typeof(prompt_age));
 
-                console.log("genre avant lancer", prompt_genre);
-
-                if (prompt_genre=="femme"){
-                    console.log("lancer femme");
-                    affichecanvas("f_02.csv");
+                if (pays == "Switzerland"){
+                    if (prompt_genre=="femme"){
+                        affichecanvas("f_02.csv");
+                        console.log("log 2");
+                    }
+                    else{
+                        affichecanvas("h_01.csv");
+                    }
                 }
-                else{
-                    console.log("lancer homme");
-                    affichecanvas("h_01.csv");
+                else if (pays == "USA"){
+                    if (prompt_genre=="femme"){
+                        affichecanvas("uswomen_01.csv");
+                    }
+                    else{
+                        affichecanvas("usmen_01.csv");
+                    }
                 }
+                else if (pays == "Chad"){
+                    if (prompt_genre=="femme"){
+                        affichecanvas("chadfemme.csv");
+                    }
+                    else{
+                        affichecanvas("chadhomme.csv");
+                    };
+                }
+                else if (pays == "Russia"){
+                    if (prompt_genre=="femme"){
+                        affichecanvas("russiawomen.csv");
+                    }
+                    else{
+                        affichecanvas("russiamen.csv");
+                    };
+                };
             }
         }
     });
@@ -40,29 +63,138 @@ window.onload = function() {
         }
         prompt_age = parseFloat(document.getElementById("age_i").value);  // Update the variable with the input value
         prompt_genre = document.querySelector('input[name="genres"]:checked').value;
-        console.log("Updated age:", prompt_age);
-        console.log("type de Updated age:", typeof(prompt_age));
-        console.log("genre", prompt_genre);
-        console.log("type de genre:", typeof(prompt_genre));
-        if (prompt_genre=="femme"){
-            affichecanvas("f_02.csv");
+        pays = document.getElementById("country").value;
+        if (pays == "Switzerland"){
+            if (prompt_genre=="femme"){
+                affichecanvas("f_02.csv");
+            }
+            else{
+                affichecanvas("h_01.csv");
+            }
         }
-        else{
-            affichecanvas("h_01.csv");
+        else if (pays == "USA"){
+            if (prompt_genre=="femme"){
+                affichecanvas("uswomen_01.csv");
+            }
+            else{
+                affichecanvas("usmen_01.csv");
+            }
         }
+        else if (pays == "Chad"){
+            if (prompt_genre=="femme"){
+                affichecanvas("chadfemme.csv");
+            }
+            else{
+                affichecanvas("chadhomme.csv");
+            };
+        }
+        else if (pays == "Russia"){
+            if (prompt_genre=="femme"){
+                affichecanvas("russiawomen.csv");
+            }
+            else{
+                affichecanvas("russiamen.csv");
+            };
+        };
     });
 
-    console.log("Page fully loaded");
-};
+    document.getElementById("frm3").addEventListener("change", function() {
+        if (prompt_age != -1){
+            d3.select("svg")
+                .remove();
+        }
 
-console.log("Updated age:", prompt_age);
+        prompt_genre = document.querySelector('input[name="genres"]:checked').value;
+        pays = document.getElementById("country").value;
+
+        if (prompt_age != -1){
+
+            prompt_age = parseFloat(document.getElementById("age_i").value);
+
+            if (pays == "Switzerland"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("f_02.csv");
+                    affichecanvas("f_02.csv");
+                }
+                else{
+                    load_csv_for_html("h_01.csv");
+                    affichecanvas("h_01.csv");
+                }
+            }
+            else if (pays == "USA"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("uswomen_01.csv");
+                    affichecanvas("uswomen_01.csv");
+                }
+                else{
+                    load_csv_for_html("usmen_01.csv");
+                    affichecanvas("usmen_01.csv");
+                }
+            }
+            else if (pays == "Chad"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("chadfemme.csv");
+                    affichecanvas("chadfemme.csv");
+                }
+                else{
+                    load_csv_for_html("chadgomme.csv");
+                    affichecanvas("chadhomme.csv");
+                };
+            }
+            else if (pays == "Russia"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("russiawomen.csv");
+                    affichecanvas("russiawomen.csv");
+                }
+                else{
+                    load_csv_for_html("russiamen.csv");
+                    affichecanvas("russiamen.csv");
+                };
+            };
+        }
+        else{
+            if (pays == "Switzerland"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("f_02.csv");
+                }
+                else{
+                    load_csv_for_html("h_01.csv");
+                }
+            }
+            else if (pays == "USA"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("uswomen_01.csv");
+                }
+                else{
+                    load_csv_for_html("usmen_01.csv");
+                }
+            }
+            else if (pays == "Chad"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("chadfemme.csv");
+                }
+                else{
+                    load_csv_for_html("chadgomme.csv");
+                };
+            }
+            else if (pays == "Russia"){
+                if (prompt_genre=="femme"){
+                    load_csv_for_html("russiawomen.csv");
+                }
+                else{
+                    load_csv_for_html("russiamen.csv");
+                };
+            };
+        };
+        
+    });
+
+};
 
 
 function affichecanvas(file){
-    console.log(file);
 
     d3
-        //.csv("f_01.csv")
         .csv(file)
         .then(function(data) {
             data.forEach(function(d) {
@@ -71,14 +203,23 @@ function affichecanvas(file){
             });
 
             l_vie = prompt_age;
+
+            Age_max = data.map(object => {
+                return object.Age;
+            });
+
+
+            max2 = Math.max(...Age_max);
+
+
+            max = max2;
+
+
+            document.getElementById("enter_age").innerHTML="Enter your age (between 0 and "+ max +") ";
+
+            document.getElementById("age_i").max = max;
             document.getElementById("time").innerHTML= Object.entries(data[l_vie])[1][1] + " years";
             document.getElementById("time_left").innerHTML="Time left : ";
-            console.log(data[l_vie]);
-            console.log(Array.isArray(data));
-            
-
-            console.log(Object.entries(data[l_vie])[1][1]);
-            
             espace = 13;
             bord = 7;
             decale = 10;
@@ -118,10 +259,6 @@ function affichecanvas(file){
                         .style("stroke-width", 1);
 
                 echelle = (Object.entries(data[l_vie])[1][1]) + l_vie;
-
-                console.log("l_vie", l_vie);
-                console.log("echelle", echelle);
-                console.log("l_vie_data", Object.entries(data[l_vie])[1][1]);
                 if (Object.entries(data[l_vie])[1][1]%Math.floor(Object.entries(data[l_vie])[1][1])==0){
                     scale = d3.scaleLinear().domain([1, (Math.floor(Object.entries(data[l_vie])[1][1])+l_vie)]).range([bord/2, Math.floor(Object.entries(data[l_vie])[1][1])*espace + l_vie*espace + bord/2 - espace]);
                 }
@@ -136,9 +273,44 @@ function affichecanvas(file){
                 else if (echelle < 100){
                     axisLeft.tickValues([1, 10, 20, 30, 40, 50, 60, 70, 80, 90, echelle]);
                 }
-                else {
-                    axisLeft.tickValues([1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, echelle]);
+                else if (echelle < 110){
+                    axisLeft.tickValues([1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, echelle]);
+                }
+                else if (echelle < 120){
+                    axisLeft.tickValues([1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, echelle]);
                 };
                 d3.select('#left').call(axisLeft);
     });  
+};
+
+function load_csv_for_html(file){
+    d3
+        .csv(file)
+        .then(function(data) {
+            data.forEach(function(d) {
+                d.Age = +d.Age;
+                d.Annee_2021 = +d.Annee_2021
+            });
+            Age_max = data.map(object => {
+                return object.Age;
+            });
+            max2 = Math.max(...Age_max);
+            max = max2;
+            document.getElementById("enter_age").innerHTML="Enter your age (between 0 and "+ max +") ";
+            document.getElementById("age_i").max = max;
+
+            document.getElementById("time").innerHTML= "";
+            document.getElementById("time_left").innerHTML="";
+    });  
+};
+
+function showinfobox() {
+
+    document.getElementById("info_box").style.display = "flow";
+    document.getElementById("darker").style.display = "flow";
+};
+function hideinfobox() {
+
+    document.getElementById("info_box").style.display = "none";
+    document.getElementById("darker").style.display = "none";
 };
