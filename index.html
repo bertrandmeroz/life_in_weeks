@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/d3@7" charset="utf-8" deter=""></script>
     <script type="text/javascript" src="script.js"></script>
@@ -10,19 +12,51 @@
     <title>Project Life In Weeks</title>
 </head>
 <body>
+    <div class="info_box" id="info_box">
+        This visualization shows your entire life in weeks through a grid made of little squares (a square equals one week) that are set in rows of 52 squares (equaling a year). 
+        <br><br>
+        The number of rows available is determined by the life expectancy given by:<br>
+        - the Swiss federal statistical office for the Swiss data set (2021)<br>
+        - by the Social Security Administration for the American data set (2020)<br>
+        - by the United Nations World Population Prospects for the Chadian and Russian data sets (2021)
+        <br><br>
+        The data sets are relative to your age and gender (unfortunately for the Russian and Chadian data sets the life expectancies are only the one at birth due to lack of data taking into account the life expectancy at a given age). 
+        <br><br>
+        How to use: first, the user is invited to choose a country, then to give his gender and age, then the number of weeks that he has already lived will appear in dark squares, the remaining time left to live (statistically) will appear with blank squares. 
+        On the left side of the gride a scale indicates the corresponding year of the row and the years left to live are also given in a bold text on top of the grid. 
+        <br><br>
+        This project aims to visualize time passing by on a weekly basis in one&apos;s life and to comprehend how much time is left in a broader scale. The choice of the country allows to compare for a Swiss/American/Russian person his life expectancy with the country that has the worst life expectancy in the world (Chad).
+    </div>
+    <div class="darker" id="darker"></div>
     <div class="content" id="content">
         <div class = "title">
             <div class="github">
-                <a href="https://github.com/bertrandmeroz/life_in_weeks">[Github]</a>
+                <a href="https://github.com/bertrandmeroz/life_in_weeks">Github </a>
+                <input type="button" class="info_button" value="   More info" onclick="showinfobox()" />
             </div>
             <h1 class="main_title">Life in Weeks</h1> 
             <br><br>
         </div>
+
+        <form id="frm3" class="frm3">
+            <label for="country">Choose a country:</label>
+            <select name="country" id="country">
+                <option value="Switzerland">Switzerland</option>
+                <option value="USA">USA</option>
+                <option value="Chad">Chad</option>
+                <option value="Russia">Russia</option>
+            </select>
+            <br>
+        </form>
+
+
         <form id="frm1" class="frm1">
-            <label for="age_i">Enter your age (between 0 and 99) </label>
+            <label id = "enter_age" for="age_i">Enter your age (between 0 and 99) </label>
             <input type="number" id="age_i" name="age_1" min="0" max="99">
             <input type="submit" id="submit_i" value="Submit"><br><br>
         </form>
+
+
         <form id="frm2" class="frm2">
             <p>Gender : 
             <input type="radio" id="femme" name="genres" value="femme" checked="checked">
@@ -31,6 +65,7 @@
             <label for="homme">male</label><br><br><br>
             </p>
         </form>
+
         <div class="time_rel">
             <p class="time_left" id="time_left"></p> <p class="time" id="time"></p><br>
         </div>
